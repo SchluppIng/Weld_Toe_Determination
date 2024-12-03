@@ -70,9 +70,5 @@ def main():
             funcfigresult(profile, [results_CM, results_LSM, results_IM],
                           [angle_MAX, angle_END_LSM, angle_END_IM])
 
-    # Gesamtergebnisse ausgeben (optional: speichern in einer Datei)
-    #print("Ergebnisse:")
-    #print(allresults)
-
 if __name__ == "__main__":
     main()
