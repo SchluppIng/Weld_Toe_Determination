@@ -61,5 +61,5 @@ We still care about sharing improvements and encourage everyone to make newer ve
 
 ## Contact Information
 
-For any questions or issues, please contact me on LinkedIn. Links can be found [here](https://github.com/cdaenekas).
+For any questions or issues, please contact Christian Dänekas on LinkedIn. Links can be found [here](https://github.com/cdaenekas).
 
