@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.interpolate import UnivariateSpline
+from funcfilterprofile import funcfilterprofile
 
 def func_derivation(profile, smoothparam):
     """
@@ -15,7 +15,7 @@ def func_derivation(profile, smoothparam):
     """
     if 0.8 <= smoothparam < 1.0:
         # Glättung des Profils mit einem Smoothing-Spline
-        spline_x = UnivariateSpline(profile[:, 0], profile[:, 1], s=smoothparam)
+        splice_x = funcfilterprofile(profile, smoothparam)
         smoothed_y = spline_x(profile[:, 0])
         profile = np.column_stack((profile[:, 0], smoothed_y))
     elif smoothparam == 1.0:
