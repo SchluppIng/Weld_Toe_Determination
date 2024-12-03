@@ -27,7 +27,7 @@ The codes created for Python 3. Therefore this project should be compatible with
 
 ## Usage
 
-- The main file (`main.m`) is an example and should be adjusted to fit individual needs. In the supplied case, ASCII files are read, each containing a single weld section.
+- The main file (`main.py`) is an example and should be adjusted to fit individual needs. In the supplied case, ASCII files are read, each containing a single weld section.
 - If multiple section information is present in a file, or if the information is in TXT or STL files, adjustments in the main file are required.
 - In `loadsettings.py`, settings for data preparation and evaluation methods can be configured.
 - All other functions work for two-dimensional sections and can be used as tools without modification.
