@@ -12,18 +12,18 @@
 - Included methods for evaluation of weld toe radius: curvature method, least squares method, iteration method
 - Included methods for evaluation of weld toe angle: maximum gradient and end point gradient.
 - Detailed description of the methods and functionality of the project can be seen in [(Dänekas et al., 2025)](https://www.sciencedirect.com/science/article/pii/S0143974X2400662X).
-- Original github repo can be found under: [WeldAnalysis](https://github.com/cdaenekas/WeldAnalysis)
+- Original GitHub repo can be found under: [WeldAnalysis](https://github.com/cdaenekas/WeldAnalysis)
 
 ## Installation
 
 1. Download and unpack the repository.
 2. Navigate to the project directory.
-3. Open any Editor you want and set the current folder to the project directory.
+3. Open any IDE you want and set the current folder to the project directory.
 4. Run the main script (`main.py`).
 
 ## Compatibility
 
-The codes created for Python 3. Therefore this project should be compatible with Python 3 and later.
+The code is created for Python 3. Therefore this project should be compatible with Python 3 and later.
 
 ## Usage
 
@@ -37,14 +37,14 @@ The codes created for Python 3. Therefore this project should be compatible with
 
 - Users are responsible for the results.
 - A significant part of the analysis is data preparation, which must be customized individually.
-- The point data in the area of the base material must have the same y-coordinates and must not be inclined. 
+- The point data in the area of the base material must have the same y-coordinates and must not be inclined.
 - This repository is not a comprehensive program but a toolkit.
 - Users must verify the accuracy of the results.
 - The quality of the scan files must be checked and should meet the requirements recommended in the paper (DOI to be added later).
 
 ## Versioning
 
-We use semantic versioning.
+We use semantic versioning. For the versions available, see the [tags on this repository](https://github.com/SchluppIng/Weld_Toe_Determination/tags).
 
 **Current Version**: 1.0.0
 

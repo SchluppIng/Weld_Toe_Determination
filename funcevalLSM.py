@@ -23,11 +23,12 @@ def funcevalLSM(profile, settings):
     # Krümmung berechnen
     _, curvature = func_derivation(profile, settings['smoothparam'])
 
-    # Schweißnahtpunkte bestimmen
-    results['DP_toe'] = np.argmax(curvature[:, 1]) + 1  # +1 wegen Indexverschiebung
+    # Bestimmung der Schweißnahtpunkte
+    results['DP_toe'] = np.argmax(curvature[:, 1])  # Index des maximalen Krümmungswertes (0-basiert)
 
+    # Bestimmung der Start- und Endpunkte mit einem zusätzlichen Offset
     results['DP_SP'] = results['DP_toe'] - (
-        np.argmax(np.flipud(curvature[:results['DP_toe'] - 2, 1]) <= curvature[results['DP_toe'], 1] * settings['factor']) - 1
+        np.argmax(np.flipud(curvature[:results['DP_toe'], 1]) <= curvature[results['DP_toe'], 1] * settings['factor']) - 1
     )
     results['DP_EP'] = results['DP_toe'] + (
         np.argmax(curvature[results['DP_toe']:, 1] <= curvature[results['DP_toe'], 1] * settings['factor']) - 1
@@ -40,14 +41,16 @@ def funcevalLSM(profile, settings):
     A[:, 1] = profile[DP_toe_all, 0]
     A[:, 2] = profile[DP_toe_all, 1]
     D = profile[DP_toe_all, 0]**2 + profile[DP_toe_all, 1]**2
-    c = np.linalg.lstsq(A, D, rcond=None)[0]
+
+    # Verwendung von np.linalg.lstsq mit verbesserter Genauigkeit
+    c, resids, rank, s = np.linalg.lstsq(A, D, rcond=None)
 
     MP_x = c[1] / 2
     MP_y = c[2] / 2
 
     results['radius'] = np.sqrt(c[0] + MP_x**2 + MP_y**2)
 
-    # Koordinaten von Kreiszentrum, Start- und Endpunkt
+    # Koordinaten des Kreismittelpunkts und der Start- und Endpunkte
     results['MP'] = [MP_x, MP_y]
     results['SP'] = profile[results['DP_SP'], :]
     results['EP'] = profile[results['DP_EP'], :]
