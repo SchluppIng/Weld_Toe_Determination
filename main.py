@@ -52,14 +52,27 @@ def main():
         allresults[loop_nr, [0, 1, 2]] = [results_CM["radius"], results_LSM["radius"], results_IM["radius"]]
         allresults[loop_nr, [3, 4, 5]] = [angle_MAX["angle"], angle_END_LSM["angle"], angle_END_IM["angle"]]
 
+         # Ergebnisse im gewünschten Format ausgeben
+        print(f"Results for File: {filename}")
+        print("-" * 53)
+        print(f"Radius (CM method): {results_CM['radius']:.3f} mm")
+        print(f"Radius (LSM method): {results_LSM['radius']:.3f} mm")
+        print(f"Radius (IM method): {results_IM['radius']:.3f} mm")
+        print("-" * 53)
+        print(f"Max Angle: {angle_MAX['angle']:.3f} degrees")
+        print(f"End Angle (LSM method): {angle_END_LSM['angle']:.3f} degrees")
+        print(f"End Angle (IM method): {angle_END_IM['angle']:.3f} degrees")
+        print("-" * 53)
+        print()  # Leere Zeile für bessere Lesbarkeit
+
         # Diagramm plotten
         if settings.get("plotresult") == 'on':
             funcfigresult(profile, [results_CM, results_LSM, results_IM],
                           [angle_MAX, angle_END_LSM, angle_END_IM])
 
     # Gesamtergebnisse ausgeben (optional: speichern in einer Datei)
-    print("Ergebnisse:")
-    print(allresults)
+    #print("Ergebnisse:")
+    #print(allresults)
 
 if __name__ == "__main__":
     main()
